@@ -6,6 +6,8 @@ import {PanelCardComponent} from './panel-card/panel-card.component';
 import {SectionTextComponent} from './section-text/section-text.component';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {TitleTextComponent} from './title-text/title-text.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {MaterialModule} from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,10 @@ import {TitleTextComponent} from './title-text/title-text.component';
     SectionTextComponent,
     SpinnerComponent,
     TitleTextComponent
+  ],
+  imports: [
+    BrowserModule,
+    MaterialModule
   ]
 })
 export class UiElementsModule {
