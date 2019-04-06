@@ -1,0 +1,10 @@
+<ng-container
+  *ngIf="isLoading; then loading; else notLoading;">
+</ng-container>
+<ng-template #notLoading><ng-content></ng-content></ng-template>
+<ng-template #loading>
+  <div class="flex-center-center flex-vert">
+    <app-spinner [size]="spinnerSize" class="animated fadeIn"></app-spinner>
+    <app-section-text *ngIf="!hideText">Loading{{contentName ? ' ' + contentName : ''}}...</app-section-text>
+  </div>
+</ng-template>

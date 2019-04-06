@@ -1,0 +1,12 @@
+:host {
+  width: 100%;
+}
+
+.action-button-container {
+  margin: 2em 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}

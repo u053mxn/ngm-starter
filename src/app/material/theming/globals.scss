@@ -1,0 +1,80 @@
+// https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1
+@import '../../../../node_modules/@angular/material/theming';
+@mixin card {
+  background-color: white;
+  color: #292929;
+  padding: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 0.2em 0.3em 0.1em rgba(0, 0, 0, 0.13);
+  border-top-width: 3px;
+  border-top-style: solid;
+}
+
+@mixin globals-theme($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .mat-raised-button:disabled {
+    background-color: rgba(0, 0, 0, 0.19) !important;
+  }
+
+  .mat-button {
+    font-family: 'Rubik', Roboto, "Helvetica Neue", sans-serif !important;
+  }
+
+  .primary {
+    color: mat-color($primary);
+  }
+
+  .accent {
+    color: mat-color($accent);
+  }
+
+  .error {
+    color: mat-color($warn);
+  }
+
+  .primary-bg {
+    background-color: mat-color($primary);
+  }
+
+  .accent-bg {
+    background-color: mat-color($accent);
+  }
+
+  .error-bg {
+    background-color: mat-color($warn);
+  }
+
+  .green-button {
+    background-color: #1b9258;
+  }
+
+  .purple-button {
+    background-color: #873da5;
+  }
+
+  .card-primary {
+    @include card;
+    border-top-color: mat-color($primary);;
+  }
+
+  .card-accent {
+    @include card;
+    border-top-color: mat-color($accent);;
+  }
+
+  .card-warn {
+    @include card;
+    border-top-color: mat-color($warn);;
+  }
+
+  .card-dark {
+    background-color: #292929 !important;
+    color: whitesmoke !important;
+  }
+}

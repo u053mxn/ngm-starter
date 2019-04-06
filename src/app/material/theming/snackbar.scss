@@ -1,0 +1,45 @@
+@import '../../../../node_modules/@angular/material/theming';
+
+@mixin snackbar-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $error: mat-palette($mat-red, 900);
+  $warn: mat-palette($mat-orange, 700, 800, 900);
+  $info: mat-palette($mat-blue,700, 800, 900);
+  $success: mat-palette($mat-green, 700, 800, 900);
+
+  .snackbar-error {
+    .mat-snack-bar-container, .mat-simple-snackbar-action {
+      background-color: mat-color($error);
+      color: whitesmoke;
+    }
+  }
+
+  .snackbar-warn {
+    .mat-snack-bar-container, .mat-simple-snackbar-action {
+      background-color: mat-color($warn);
+      color: whitesmoke;
+    }
+  }
+
+  .snackbar-info {
+    .mat-snack-bar-container, .mat-simple-snackbar-action {
+      background-color: mat-color($info);
+      color: whitesmoke;
+    }
+  }
+
+  .snackbar-success {
+    .mat-snack-bar-container, .mat-simple-snackbar-action {
+      background-color: mat-color($success);
+      color: whitesmoke;
+    }
+  }
+
+  .mat-snack-bar-handset {
+    width: auto !important;
+  }
+
+}
