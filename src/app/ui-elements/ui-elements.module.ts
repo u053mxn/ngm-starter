@@ -8,7 +8,6 @@ import {SpinnerComponent} from './spinner/spinner.component';
 import {TitleTextComponent} from './title-text/title-text.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {MaterialModule} from '../material/material.module';
-import { SwirlBgComponent } from './swirl-bg/swirl-bg.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +17,9 @@ import { SwirlBgComponent } from './swirl-bg/swirl-bg.component';
     PanelCardComponent,
     SectionTextComponent,
     SpinnerComponent,
-    TitleTextComponent,
-    SwirlBgComponent
+    TitleTextComponent
   ],
   exports: [
-    SwirlBgComponent
   ],
   imports: [
     BrowserModule,

@@ -50,12 +50,14 @@
     background-color: mat-color($warn);
   }
 
-  .green-button {
-    background-color: #1b9258;
+  .mat-success-button {
+    background-color: #169839;
+    color: white;
   }
 
-  .purple-button {
-    background-color: #873da5;
+  .mat-warn-button {
+    background-color: #db810e;
+    color: white;
   }
 
   .card-primary {

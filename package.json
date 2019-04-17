@@ -1,5 +1,5 @@
 {
-  "name": "michael-portfolio",
+  "name": "e2-mod-dash",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "e2e:update": "webdriver-manager update"
   },
   "private": true,
   "dependencies": {

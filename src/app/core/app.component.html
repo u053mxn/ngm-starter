@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<section class="flex-center-around flex-vert full">
+  <h1 class="animated slideInLeft">This is the app component!</h1>
+
+  <div class="flex-center-even animated fadeInUp button-container">
+    <button mat-raised-button color="primary" (click)="message('Info Message', SnackbarMessageType.INFO)">Display Info</button>
+    <button mat-raised-button class="mat-success-button" (click)="message('Success Message', SnackbarMessageType.SUCCESS)">Display Success</button>
+    <button mat-raised-button class="mat-warn-button" (click)="message('Warn Message', SnackbarMessageType.WARN)">Display Warn</button>
+    <button mat-raised-button color="warn" (click)="message('Error Message', SnackbarMessageType.ERROR)">Display Error</button>
+  </div>
+
+  <div class="flex-center-center flex-vert">
+    Router outlet below
+    <router-outlet></router-outlet>
+  </div>
+
+</section>
+

@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to michael-portfolio!');
+    expect(page.getTitleText()).toEqual('Welcome to e2-mod-dash!');
   });
 
   afterEach(async () => {

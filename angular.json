@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "michael-portfolio": {
+    "e2-mod-dash": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/michael-portfolio",
+            "outputPath": "dist/e2-mod-dash",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,22 +71,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "michael-portfolio:build"
+            "browserTarget": "e2-mod-dash:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "michael-portfolio:build:production"
+              "browserTarget": "e2-mod-dash:build:production"
             },
             "hmr": {
               "hmr": true,
-              "browserTarget": "michael-portfolio:build:hmr"
+              "browserTarget": "e2-mod-dash:build:hmr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "michael-portfolio:build"
+            "browserTarget": "e2-mod-dash:build"
           }
         },
         "test": {
@@ -120,7 +120,7 @@
         }
       }
     },
-    "michael-portfolio-e2e": {
+    "e2-mod-dash-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -129,11 +129,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "michael-portfolio:serve"
+            "devServerTarget": "e2-mod-dash:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "michael-portfolio:serve:production"
+              "devServerTarget": "e2-mod-dash:serve:production"
             }
           }
         },
@@ -149,7 +149,7 @@
       }
     }
   },
-  "defaultProject": "michael-portfolio",
+  "defaultProject": "e2-mod-dash",
   "cli": {
   }
 }

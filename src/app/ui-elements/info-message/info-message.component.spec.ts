@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InfoMessageComponent } from './info-message.component';
+import {MaterialModule} from '../../material/material.module';
 
 describe('InfoMessageComponent', () => {
   let component: InfoMessageComponent;
@@ -8,7 +9,8 @@ describe('InfoMessageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoMessageComponent ]
+      declarations: [ InfoMessageComponent ],
+      imports: [MaterialModule]
     })
     .compileComponents();
   }));

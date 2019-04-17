@@ -14,6 +14,7 @@ import {environment} from '../../environments/environment.prod';
 import {UiElementsModule} from '../ui-elements/ui-elements.module';
 import {HomeComponent} from '../components/home/home.component';
 import {NotFoundComponent} from '../components/not-found/not-found.component';
+import {SnackbarService} from '../material/snackbar';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {NotFoundComponent} from '../components/not-found/not-found.component';
       [] :
       [AkitaNgDevtools.forRoot(), AkitaNgRouterStoreModule.forRoot()]
   ],
-  providers: [MessageService],
+  providers: [MessageService, SnackbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

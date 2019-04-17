@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {MessageService} from '../services/message.service';
+import {SnackbarMessageType} from '../material/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'michael-portfolio';
+  SnackbarMessageType = SnackbarMessageType;
+  constructor(private messageService: MessageService) {
+  }
+
+  message(message: string, messageType: SnackbarMessageType) {
+    this.messageService.emitMessage({message: message, messageType: messageType});
+  }
 }
