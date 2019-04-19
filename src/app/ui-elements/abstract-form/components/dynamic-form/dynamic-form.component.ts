@@ -73,7 +73,9 @@ export class DynamicFormComponent implements OnInit {
       const csf = f.columnSpanFraction;
       const ff: FormattedFieldConfig = Object.create(f);
       if (!!csf && csf <= 1 && csf > 0) {
-        ff.columnSpan = Math.ceil(this.columns * (f.columnSpanFraction || 1));
+        ff.columnSpan = Math.ceil(this.columns * (f.columnSpanFraction));
+      } else {
+        ff.columnSpan = this.columns;
       }
       this.formattedFields.push(ff);
     }
