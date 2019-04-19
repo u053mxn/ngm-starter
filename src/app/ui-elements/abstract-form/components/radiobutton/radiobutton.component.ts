@@ -1,13 +1,14 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FieldConfig} from '../../field.interface';
+import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 @Component({
   selector: 'app-radiobutton',
   template: `
     <div [formGroup]="group" class="form-group-container" [ngStyle]="{'justify-content': field.alignment}">
       <label class="radio-label-padding">{{field.label}}:</label>
-      <mat-radio-group [formControlName]="field.name">
+      <mat-radio-group [formControlName]="field.name" class="radio-group">
         <mat-radio-button class="radio-button" *ngFor="let item of field.options" [value]="item">{{item}}</mat-radio-button>
       </mat-radio-group>
     </div>
@@ -17,7 +18,10 @@ import {FieldConfig} from '../../field.interface';
       display: flex;
       align-items: center;
     }
-
+    .radio-group {
+      display: flex;
+      flex-wrap: nowrap;
+    }
     .radio-label-padding {
       padding-right: 1em;
     }
@@ -33,7 +37,7 @@ import {FieldConfig} from '../../field.interface';
 export class RadiobuttonComponent implements OnInit {
   @HostBinding('style.width') hostWidth: string;
   @HostBinding('style.grid-column-end') hostSpan: string;
-  field: FieldConfig;
+  field: FormattedFieldConfig;
   group: FormGroup;
 
   constructor() {

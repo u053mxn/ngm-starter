@@ -14,6 +14,7 @@ import { SelectComponent } from '../select/select.component';
 import { DateComponent } from '../date/date.component';
 import { RadiobuttonComponent } from '../radiobutton/radiobutton.component';
 import { CheckboxComponent } from '../checkbox/checkbox.component';
+import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 const componentMapper = {
   input: InputComponent,
@@ -27,7 +28,7 @@ const componentMapper = {
   selector: '[dynamicField]'
 })
 export class DynamicFieldDirective implements OnInit {
-  @Input() field: FieldConfig;
+  @Input() field: FormattedFieldConfig;
   @Input() group: FormGroup;
   componentRef: any;
   constructor(

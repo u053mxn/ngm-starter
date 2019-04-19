@@ -6,11 +6,9 @@ export const FORM_COFNIG: FieldConfig[] = [
   {
     type: 'input',
     label: 'Username',
-    width: '100%',
-    rowWidth: '100%',
-    columnSpan: 2,
     inputType: 'text',
     name: 'name',
+    columnSpanFraction: 1,
     validations: [
       {
         name: 'required',
@@ -63,7 +61,7 @@ export const FORM_COFNIG: FieldConfig[] = [
     name: 'gender',
     options: ['Male', 'Female'],
     value: 'Male',
-    alignment: 'center'
+    alignment: 'flex-start'
   },
   {
     type: 'date',
@@ -82,7 +80,7 @@ export const FORM_COFNIG: FieldConfig[] = [
     label: 'Country',
     name: 'country',
     value: 'UK',
-    options: ['India', 'UAE', 'UK', 'US']
+    options: ['India', 'UAE', 'UK', 'US'],
   },
   {
     type: 'checkbox',
@@ -96,7 +94,7 @@ export const FORM_COFNIG: FieldConfig[] = [
     label: 'Save',
     width: '10em',
     rowWidth: '100%',
-    columnSpan: 2,
-    alignment: 'center'
+    alignment: 'center',
+    columnSpanFraction: 1
   }
 ];

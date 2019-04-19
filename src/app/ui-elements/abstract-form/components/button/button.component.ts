@@ -1,6 +1,7 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FieldConfig} from '../../field.interface';
+import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 @Component({
   selector: 'app-button',
@@ -20,13 +21,14 @@ import {FieldConfig} from '../../field.interface';
     .form-group-container {
       width: 100%;
       display: flex;
+      padding: 0.5em 0;
     }
   `]
 })
 export class ButtonComponent implements OnInit {
   @HostBinding('style.width') hostWidth: string;
   @HostBinding('style.grid-column-end') hostSpan: string;
-  field: FieldConfig;
+  field: FormattedFieldConfig;
   group: FormGroup;
 
   constructor() {

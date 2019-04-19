@@ -1,26 +1,6 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {DynamicFormComponent} from './components/dynamic-form/dynamic-form.component';
 import {FieldConfig} from './field.interface';
-
-export class FormData {
-  input = '';
-  select = '';
-}
-
-export enum InputType {
-  INPUT,
-  SELECT
-}
-
-export interface FormElementStructure {
-  fieldName: string;
-  fieldType: InputType;
-  dataType?: string;
-  dropDownOptions?: string[];
-  placeholder?: string;
-  label?: string;
-}
 
 @Component({
   selector: 'app-abstract-form',
@@ -29,7 +9,6 @@ export interface FormElementStructure {
 })
 export class AbstractFormComponent {
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
-  @Input() lightTheme = true;
   @Input() formTitle = '';
   @Input() formConfig: FieldConfig[];
   @Input() columns;

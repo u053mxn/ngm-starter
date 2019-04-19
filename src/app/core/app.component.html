@@ -1,19 +1,37 @@
-<section class="flex-center-around flex-vert full">
-  <h1 class="animated slideInLeft">This is the app component!</h1>
+<mat-sidenav-container style="width: 100%; height: 100%">
+  <mat-sidenav-content>
+    <section class="flex-center-around flex-vert">
+      <h1 class="animated slideInLeft" style="padding-top: 5em">This is the app component!</h1>
 
-  <div class="flex-center-even animated fadeInUp button-container">
-    <button mat-raised-button color="primary" (click)="message('Info Message', SnackbarMessageType.INFO)">Display Info</button>
-    <button mat-raised-button class="mat-success-button" (click)="message('Success Message', SnackbarMessageType.SUCCESS)">Display Success</button>
-    <button mat-raised-button class="mat-warn-button" (click)="message('Warn Message', SnackbarMessageType.WARN)">Display Warn</button>
-    <button mat-raised-button color="warn" (click)="message('Error Message', SnackbarMessageType.ERROR)">Display Error</button>
-  </div>
+      <app-action-button-container>
+        <button mat-raised-button color="primary" (click)="message('Info Message', SnackbarMessageType.INFO)">Display
+          Info
+        </button>
+        <button mat-raised-button class="mat-success-button"
+                (click)="message('Success Message', SnackbarMessageType.SUCCESS)">Display Success
+        </button>
+        <button mat-raised-button class="mat-warn-button" (click)="message('Warn Message', SnackbarMessageType.WARN)">
+          Display Warn
+        </button>
+        <button mat-raised-button color="warn" (click)="message('Error Message', SnackbarMessageType.ERROR)">Display
+          Error
+        </button>
+      </app-action-button-container>
 
-  <app-example-form></app-example-form>
+      <app-action-button-container>
+        <button mat-raised-button color="primary" (click)="changeTheme(AppTheme.DARK)">Dark Theme</button>
+        <button mat-raised-button color="accent" (click)="changeTheme(AppTheme.LIGHT)">Light Theme</button>
+      </app-action-button-container>
 
-  <div class="flex-center-center flex-vert">
-    Router outlet below
-    <router-outlet></router-outlet>
-  </div>
+      <app-example-form></app-example-form>
 
-</section>
+      <div class="flex-center-center flex-vert" style="padding-top: 3em">
+        Router outlet below
+        <router-outlet></router-outlet>
+      </div>
+
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 

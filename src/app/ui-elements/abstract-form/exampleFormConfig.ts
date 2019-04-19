@@ -1,10 +1,14 @@
 import {Validators} from '@angular/forms';
 import {FieldConfig} from './field.interface';
 
-const COFNIG: FieldConfig[] = [
+
+export const FORM_COFNIG: FieldConfig[] = [
   {
     type: 'input',
     label: 'Username',
+    width: '100%',
+    rowWidth: '100%',
+    columnSpanFraction: 2,
     inputType: 'text',
     name: 'name',
     validations: [
@@ -58,7 +62,8 @@ const COFNIG: FieldConfig[] = [
     label: 'Gender',
     name: 'gender',
     options: ['Male', 'Female'],
-    value: 'Male'
+    value: 'Male',
+    alignment: 'center'
   },
   {
     type: 'date',
@@ -83,10 +88,15 @@ const COFNIG: FieldConfig[] = [
     type: 'checkbox',
     label: 'Accept Terms',
     name: 'term',
-    value: true
+    value: true,
+    alignment: 'center'
   },
   {
     type: 'button',
-    label: 'Save'
+    label: 'Save',
+    width: '10em',
+    rowWidth: '100%',
+    columnSpanFraction: 2,
+    alignment: 'center'
   }
 ];

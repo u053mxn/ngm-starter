@@ -4,11 +4,12 @@ import {
   MatFormFieldModule, MatGridListModule, MatIconModule,
   MatInputModule, MatNativeDateModule,
   MatOptionModule, MatPaginatorModule, MatProgressSpinnerModule, MatRadioModule,
-  MatSelectModule,
+  MatSelectModule, MatSidenavModule,
   MatSnackBarModule, MatSortModule, MatTableModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 import {SnackbarModule} from './snackbar';
+import {ThemingService} from './theming/theming.service';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {SnackbarModule} from './snackbar';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatSidenavModule,
     SnackbarModule
   ],
   exports: [
@@ -51,8 +53,10 @@ import {SnackbarModule} from './snackbar';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatSidenavModule,
     SnackbarModule
   ],
+  providers: [ThemingService]
 })
 export class MaterialModule {
 }

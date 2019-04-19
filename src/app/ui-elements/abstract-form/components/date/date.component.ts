@@ -1,6 +1,7 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FieldConfig} from '../../field.interface';
+import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 @Component({
   selector: 'app-date',
@@ -25,7 +26,7 @@ import {FieldConfig} from '../../field.interface';
 export class DateComponent implements OnInit {
   @HostBinding('style.width') hostWidth: string;
   @HostBinding('style.grid-column-end') hostSpan: string;
-  field: FieldConfig;
+  field: FormattedFieldConfig;
   group: FormGroup;
 
   constructor() {

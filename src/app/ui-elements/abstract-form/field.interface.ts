@@ -23,7 +23,7 @@ export interface FieldConfig {
   loading$?: Observable<boolean>;
   width?: string;
   rowWidth?: string;
-  columnSpan?: number;
+  columnSpanFraction?: number;
   alignment?: Alignment;
 }
 
