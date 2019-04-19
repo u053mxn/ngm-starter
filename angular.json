@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "e2-mod-dash": {
+    "ngm-starter": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/e2-mod-dash",
+            "outputPath": "dist/ngm-starter",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,22 +71,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "e2-mod-dash:build"
+            "browserTarget": "ngm-starter:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "e2-mod-dash:build:production"
+              "browserTarget": "ngm-starter:build:production"
             },
             "hmr": {
               "hmr": true,
-              "browserTarget": "e2-mod-dash:build:hmr"
+              "browserTarget": "ngm-starter:build:hmr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "e2-mod-dash:build"
+            "browserTarget": "ngm-starter:build"
           }
         },
         "test": {
@@ -120,7 +120,7 @@
         }
       }
     },
-    "e2-mod-dash-e2e": {
+    "ngm-starter-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -129,11 +129,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "e2-mod-dash:serve"
+            "devServerTarget": "ngm-starter:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "e2-mod-dash:serve:production"
+              "devServerTarget": "ngm-starter:serve:production"
             }
           }
         },
@@ -149,7 +149,7 @@
       }
     }
   },
-  "defaultProject": "e2-mod-dash",
+  "defaultProject": "ngm-starter",
   "cli": {
   }
 }
