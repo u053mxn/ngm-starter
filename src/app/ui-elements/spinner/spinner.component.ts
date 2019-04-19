@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-spinner',
@@ -9,7 +9,7 @@ export class SpinnerComponent implements AfterViewInit {
   @ViewChild('spinner') spinner: ElementRef;
   @Input() size: number;
   constructor() {
-    this.size = 100;
+    this.size = 5;
   }
 
   ngAfterViewInit() {

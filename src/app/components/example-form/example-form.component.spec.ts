@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfoMessageComponent } from './info-message.component';
+import { ExampleFormComponent } from './example-form.component';
 
-describe('InfoMessageComponent', () => {
-  let component: InfoMessageComponent;
-  let fixture: ComponentFixture<InfoMessageComponent>;
+describe('ExampleFormComponent', () => {
+  let component: ExampleFormComponent;
+  let fixture: ComponentFixture<ExampleFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoMessageComponent ]
+      declarations: [ ExampleFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InfoMessageComponent);
+    fixture = TestBed.createComponent(ExampleFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

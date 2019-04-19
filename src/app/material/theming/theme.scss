@@ -1,6 +1,7 @@
 @import '../../../../node_modules/@angular/material/theming';
 @import 'globals';
 @import 'snackbar';
+@import './data-table';
 
 @include mat-core();
 
@@ -9,11 +10,12 @@
   $e2-accent:  mat-palette($mat-deep-orange, A400);
   $e2-warn:    mat-palette($mat-red, 600, 700, 800);
 
-  $e2-dark-theme: mat-dark-theme($e2-primary, $e2-accent, $e2-warn);
+  $app-dark-theme: mat-dark-theme($e2-primary, $e2-accent, $e2-warn);
 
-  @include angular-material-theme($e2-dark-theme);
-  @include snackbar-theme($e2-dark-theme);
-  @include globals-theme($e2-dark-theme);
+  @include angular-material-theme($app-dark-theme);
+  @include data-table-theme($app-dark-theme);
+  @include snackbar-theme($app-dark-theme);
+  @include globals-theme($app-dark-theme);
 }
 
 .light-theme {
@@ -21,9 +23,10 @@
   $e2-accent:  mat-palette($mat-deep-orange, A400);
   $e2-warn:    mat-palette($mat-red, 600, 700, 800);
 
-  $e2-light-theme: mat-light-theme($e2-primary, $e2-accent, $e2-warn);
+  $app-light-theme: mat-light-theme($e2-primary, $e2-accent, $e2-warn);
 
-  @include angular-material-theme($e2-light-theme);
-  @include snackbar-theme($e2-light-theme);
-  @include globals-theme($e2-light-theme);
+  @include angular-material-theme($app-light-theme);
+  @include data-table-theme($app-light-theme);
+  @include snackbar-theme($app-light-theme);
+  @include globals-theme($app-light-theme);
 }

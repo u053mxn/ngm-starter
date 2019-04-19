@@ -1,0 +1,8 @@
+<div class="form-container" *ngIf="formConfig" [ngClass]="{'light-theme': lightTheme}">
+  <div style="text-align:center">
+    <app-section-text *ngIf="formTitle">
+      {{formTitle}}
+    </app-section-text>
+  </div>
+  <dynamic-form [fields]="formConfig"  [columns]="columns" [gridRowGap]="gridRowGap" [gridColumnGap]="gridColumnGap" (submit)="submit($event)"></dynamic-form>
+</div>

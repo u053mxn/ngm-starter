@@ -1,0 +1,38 @@
+@import '~@angular/material/theming';
+
+@mixin data-table-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+
+  .data-table-light {
+    border-left: solid 3px mat-color($primary);
+  }
+
+  .table-container .mat-header-row {
+    background-color: mat-color($primary, 900);
+    box-shadow: 0 4px 2px -2px gray;
+  }
+
+  .table-container .colored-row {
+    background-color: #fafafa;
+  }
+
+  .table-container .yes-no {
+    color: mat-color($mat-blue-gray, 500);
+  }
+
+  .table-container .mat-header-row .mat-header-cell {
+    color: white !important;
+  }
+
+  .table-container .mat-header-row .mat-header-cell .mat-sort-header-arrow {
+    color: white !important;
+  }
+
+  .table-header .mat-checkbox .mat-checkbox-frame {
+    border-color: white !important;
+  }
+}
