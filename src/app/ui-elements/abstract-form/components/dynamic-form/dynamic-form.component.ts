@@ -40,11 +40,8 @@ export class DynamicFormComponent implements OnInit {
   form: FormGroup;
   resizeSub: Subscription;
   formattedFields: FormattedFieldConfig[] = [];
-  get value() {
-    return this.form.value;
-  }
 
-  constructor(private fb: FormBuilder, private el: ElementRef) {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -57,10 +54,11 @@ export class DynamicFormComponent implements OnInit {
       this.onInit();
     });
   }
+
   onInit() {
     const w = this.formElement.nativeElement.offsetWidth;
     console.log(w);
-    if ( w < 500) {
+    if (w < 500) {
       this.columns = 1;
     } else if (w >= 500 && w < 1000) {
       this.columns = 2;
@@ -80,6 +78,7 @@ export class DynamicFormComponent implements OnInit {
       this.formattedFields.push(ff);
     }
   }
+
   onSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
