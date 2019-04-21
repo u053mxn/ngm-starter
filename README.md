@@ -4,7 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Docker Deploy
 
-`docker build -t latest . && docker run -p 4500:80 --name ngm-starter latest`
+```bash
+npm run docker:build
+npm run docker:deploy
+
+or
+
+npm run docker:start
+```
 
 ## Development server
 
