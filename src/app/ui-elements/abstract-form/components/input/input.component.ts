@@ -1,10 +1,9 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from '../../field.interface';
 import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 @Component({
-  selector: 'app-input',
+  selector: 'ui-input',
   template: `
     <mat-form-field class="dynamic-form-field" [formGroup]="group" [ngStyle]="{'width': field.width}">
       <input matInput [formControlName]="field.name" [placeholder]="field.label" [type]="field.inputType">

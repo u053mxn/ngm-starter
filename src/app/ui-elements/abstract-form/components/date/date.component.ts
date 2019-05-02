@@ -1,12 +1,11 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from '../../field.interface';
 import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 @Component({
-  selector: 'app-date',
+  selector: 'ui-date',
   template: `
-    <mat-form-field class="dynamic-form-field"  [formGroup]="group" [ngStyle]="{'width': field.width}">
+    <mat-form-field class="dynamic-form-field" [formGroup]="group" [ngStyle]="{'width': field.width}">
       <input matInput [matDatepicker]="picker" [formControlName]="field.name" [placeholder]="field.label">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>

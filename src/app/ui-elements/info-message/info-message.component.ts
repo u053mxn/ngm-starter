@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-info-message',
+  selector: 'ui-info-message',
   template: `
     <article class="flex-center-around card-accent animated fadeInRight animate-fast" style="font-size: 0.9em">
       <mat-icon style="margin-right: 0.8em; color: #616161">info</mat-icon>

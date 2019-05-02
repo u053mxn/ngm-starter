@@ -1,9 +1,9 @@
-<div class="form-container" *ngIf="formConfig">
+<ui-panel-card class="form-container" *ngIf="formConfig">
   <div style="text-align:center">
-    <app-section-text *ngIf="formTitle">
+    <ui-section-text *ngIf="formTitle">
       {{formTitle}}
-    </app-section-text>
+    </ui-section-text>
   </div>
-  <dynamic-form [fields]="formConfig" [columns]="columns" [gridRowGap]="gridRowGap" [gridColumnGap]="gridColumnGap"
-                (submit)="submit($event)"></dynamic-form>
-</div>
+  <ui-dynamic-form [fields]="formConfig" [columns]="columns" [gridRowGap]="gridRowGap" [gridColumnGap]="gridColumnGap"
+                (submit)="submit($event)"></ui-dynamic-form>
+</ui-panel-card>

@@ -1,19 +1,19 @@
-import {Component, ElementRef, EventEmitter, HostBinding, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FieldConfig} from '../../field.interface';
-import {fromEvent, Observable, Subscription} from 'rxjs';
+import {fromEvent, Subscription} from 'rxjs';
 import {throttleTime} from 'rxjs/operators';
 
 @Component({
   exportAs: 'dynamicForm',
-  selector: 'dynamic-form',
+  selector: 'ui-dynamic-form',
   template: `
-    <form #formElement class="dynamic-form" [formGroup]="form" (submit)="onSubmit($event)"
+    <form #formElement class="dynamic-form" [formGroup]="formGroup" (submit)="onSubmit($event)"
           [ngStyle]="{
           'grid-template-columns': 'repeat(' + columns + ', 1fr)',
           'grid-column-gap': gridColumnGap,
           'grid-row-gap': gridRowGap}">
-      <ng-container *ngFor="let field of formattedFields;" dynamicField [field]="field" [group]="form">
+      <ng-container *ngFor="let field of formattedFields;" uiDynamicField [field]="field" [group]="formGroup">
       </ng-container>
     </form>
   `,
@@ -24,7 +24,6 @@ import {throttleTime} from 'rxjs/operators';
       justify-items: start;
       grid-column-gap: 1em;
     }
-
   `]
 })
 export class DynamicFormComponent implements OnInit {
@@ -37,7 +36,7 @@ export class DynamicFormComponent implements OnInit {
 
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
-  form: FormGroup;
+  formGroup: FormGroup;
   resizeSub: Subscription;
   formattedFields: FormattedFieldConfig[] = [];
 
@@ -46,7 +45,7 @@ export class DynamicFormComponent implements OnInit {
 
   ngOnInit() {
     this.onInit();
-    this.form = this.createControl();
+    this.formGroup = this.createControl();
     // throttle resize events
     this.resizeSub = fromEvent(window, 'resize').pipe(
       throttleTime(500)
@@ -69,7 +68,7 @@ export class DynamicFormComponent implements OnInit {
     for (let i = 0; i < this.fields.length; i++) {
       const f = this.fields[i];
       const csf = f.columnSpanFraction;
-      const ff: FormattedFieldConfig = Object.create(f);
+      const ff: FormattedFieldConfig = Object.assign({}, f);
       if (!!csf && csf <= 1 && csf > 0) {
         ff.columnSpan = Math.ceil(this.columns * (f.columnSpanFraction));
       } else {
@@ -82,11 +81,15 @@ export class DynamicFormComponent implements OnInit {
   onSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    if (this.form.valid) {
-      this.submit.emit(this.form.value);
+    if (this.formGroup.valid) {
+      this.submit.emit(this.formGroup.value);
     } else {
-      this.validateAllFormFields(this.form);
+      this.validateAllFormFields(this.formGroup);
     }
+  }
+
+  reset() {
+    this.formGroup.reset();
   }
 
   createControl() {

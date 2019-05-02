@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-action-button-container',
+  selector: 'ui-action-button-container',
   templateUrl: './action-button-container.component.html',
   styleUrls: ['./action-button-container.component.scss']
 })

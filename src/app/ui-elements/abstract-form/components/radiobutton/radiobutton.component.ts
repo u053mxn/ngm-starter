@@ -1,10 +1,9 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from '../../field.interface';
 import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 @Component({
-  selector: 'app-radiobutton',
+  selector: 'ui-radiobutton',
   template: `
     <div [formGroup]="group" class="form-group-container" [ngStyle]="{'justify-content': field.alignment}">
       <label class="radio-label-padding">{{field.label}}:</label>
@@ -18,16 +17,20 @@ import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
       display: flex;
       align-items: center;
     }
+
     .radio-group {
       display: flex;
       flex-wrap: nowrap;
     }
+
     .radio-label-padding {
       padding-right: 1em;
     }
+
     .radio-button:not(:last-child) {
       padding-right: 1em;
     }
+
     .form-group-container {
       width: 100%;
       display: flex;

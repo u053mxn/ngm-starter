@@ -1,13 +1,14 @@
 import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 
 @Component({
-  selector: 'app-spinner',
+  selector: 'ui-spinner',
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements AfterViewInit {
   @ViewChild('spinner') spinner: ElementRef;
   @Input() size: number;
+
   constructor() {
     this.size = 5;
   }

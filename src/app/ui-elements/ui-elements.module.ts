@@ -11,7 +11,6 @@ import {SelectComponent} from './abstract-form/components/select/select.componen
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MaterialModule} from '../material/material.module';
 import {ActionButtonContainerComponent} from './action-button-container/action-button-container.component';
 import {InfoMessageComponent} from './info-message/info-message.component';
 import {LoadingWrapperComponent} from './loading-wrapper/loading-wrapper.component';
@@ -20,6 +19,12 @@ import {SectionTextComponent} from './section-text/section-text.component';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {TitleTextComponent} from './title-text/title-text.component';
 import {DataTableComponent} from './data-table/data-table.component';
+import {LevelTwoPageContainerComponent} from '../e2-elements/level-two-page-container/level-two-page-container.component';
+import {LevelTwoSidebarComponent} from '../e2-elements/level-two-sidebar/level-two-sidebar.component';
+import {MaterialModule} from '../../modules/material.module';
+import {AppRoutingModule} from '../../modules/app.routing.module';
+import {LoginAnimationComponent} from '../e2-elements/login-animation/login-animation.component';
+import {DisableControlDirective} from './abstract-form/components/disable-control/disable-control.directive';
 
 @NgModule({
   declarations: [
@@ -39,11 +44,13 @@ import {DataTableComponent} from './data-table/data-table.component';
     SectionTextComponent,
     SpinnerComponent,
     TitleTextComponent,
-    DataTableComponent
+    DataTableComponent,
+    DisableControlDirective
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
@@ -70,7 +77,8 @@ import {DataTableComponent} from './data-table/data-table.component';
     SectionTextComponent,
     SpinnerComponent,
     TitleTextComponent,
-    DataTableComponent
+    DataTableComponent,
+    DisableControlDirective
   ],
   entryComponents: [
     InputComponent,

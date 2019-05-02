@@ -1,19 +1,11 @@
-import {
-  ComponentFactoryResolver,
-  ComponentRef,
-  Directive,
-  Input,
-  OnInit, Renderer2,
-  ViewContainerRef
-} from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FieldConfig } from '../../field.interface';
-import { InputComponent } from '../input/input.component';
-import { ButtonComponent } from '../button/button.component';
-import { SelectComponent } from '../select/select.component';
-import { DateComponent } from '../date/date.component';
-import { RadiobuttonComponent } from '../radiobutton/radiobutton.component';
-import { CheckboxComponent } from '../checkbox/checkbox.component';
+import {ComponentFactoryResolver, Directive, Input, OnInit, ViewContainerRef} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {InputComponent} from '../input/input.component';
+import {ButtonComponent} from '../button/button.component';
+import {SelectComponent} from '../select/select.component';
+import {DateComponent} from '../date/date.component';
+import {RadiobuttonComponent} from '../radiobutton/radiobutton.component';
+import {CheckboxComponent} from '../checkbox/checkbox.component';
 import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 const componentMapper = {
@@ -24,17 +16,21 @@ const componentMapper = {
   radiobutton: RadiobuttonComponent,
   checkbox: CheckboxComponent
 };
+
 @Directive({
-  selector: '[dynamicField]'
+  selector: '[uiDynamicField]'
 })
 export class DynamicFieldDirective implements OnInit {
   @Input() field: FormattedFieldConfig;
   @Input() group: FormGroup;
   componentRef: any;
+
   constructor(
     private resolver: ComponentFactoryResolver,
     private container: ViewContainerRef,
-  ) {}
+  ) {
+  }
+
   ngOnInit() {
     const factory = this.resolver.resolveComponentFactory(
       componentMapper[this.field.type]

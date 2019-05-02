@@ -1,10 +1,9 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {FieldConfig} from '../../field.interface';
 import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
 
 @Component({
-  selector: 'app-checkbox',
+  selector: 'ui-checkbox',
   template: `
     <div class="form-group-container" [formGroup]="group">
       <mat-checkbox class="form-item" [formControlName]="field.name"

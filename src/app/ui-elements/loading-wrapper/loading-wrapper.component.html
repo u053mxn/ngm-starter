@@ -4,7 +4,7 @@
 <ng-template #notLoading><ng-content></ng-content></ng-template>
 <ng-template #loading>
   <div class="flex-center-center flex-vert">
-    <app-spinner [size]="spinnerSize" class="animated fadeIn"></app-spinner>
-    <app-section-text *ngIf="!hideText">Loading{{contentName ? ' ' + contentName : ''}}...</app-section-text>
+    <ui-spinner [size]="spinnerSize" class="animated fadeIn"></ui-spinner>
+    <ui-section-text *ngIf="!hideText">Loading{{contentName ? ' ' + contentName : ''}}...</ui-section-text>
   </div>
 </ng-template>
