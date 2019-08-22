@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {E2Log} from '../../../../core/logging/e2-log.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import * as moment from 'moment-mini';
 import {Moment} from 'moment-mini';
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
@@ -46,7 +45,7 @@ export class DatepickerComponent implements OnInit {
     }
 
     onDateChange(date) {
-        E2Log.info(date);
+        console.log(date);
         this.date = moment(date);
         this.dayOfWeek = this.date.format('ddd');
         this.day = this.date.format('MMMM Do');

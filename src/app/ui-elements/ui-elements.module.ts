@@ -1,9 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {AppMaterialModule} from '../../../app-material/app-material.module';
 import {AbstractFormComponent} from './abstract-form/abstract-form.component';
 import {ButtonComponent} from './abstract-form/components/button/button.component';
 import {CheckboxComponent} from './abstract-form/components/checkbox/checkbox.component';
@@ -30,93 +27,99 @@ import {DottedVerticalSeparatorComponent} from './dotted-vertical-separator/dott
 import {BackButtonComponent} from './back-button/back-button.component';
 import {DatepickerComponent} from './datepicker/datepicker.component';
 import {TimepickerComponent} from './timepicker/timepicker.component';
-import { OnOffLightComponent } from './on-off-light/on-off-light.component';
+import {OnOffLightComponent} from './on-off-light/on-off-light.component';
 import {LayoutModule} from '@angular/cdk/layout';
+import {MaterialModule} from '../material/material.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {ActionButtonContainerComponent} from './action-button-container/action-button-container.component';
 
 @NgModule({
-    declarations: [
-        PanelCardComponent,
-        AbstractFormComponent,
-        ButtonComponent,
-        CheckboxComponent,
-        DateComponent,
-        DynamicFieldDirective,
-        DynamicFormComponent,
-        InputComponent,
-        RadiobuttonComponent,
-        SelectComponent,
-        LoadingWrapperComponent,
-        SectionTextComponent,
-        SpinnerComponent,
-        TitleTextComponent,
-        DataTableComponent,
-        DisableControlDirective,
-        TextAreaComponent,
-        FaIconCircleComponent,
-        ParentFieldComponent,
-        ContentCardComponent,
-        SectionHeaderComponent,
-        DottedVerticalSeparatorComponent,
-        BackButtonComponent,
-        DatepickerComponent,
-        TimepickerComponent,
-        OnOffLightComponent
-    ],
-    imports: [
-        CommonModule,
-        FlexLayoutModule,
-        AppMaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-        FontAwesomeModule,
-        LayoutModule,
-        RouterModule,
-    ],
-    exports: [
-        FlexLayoutModule,
-        AppMaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-        PanelCardComponent,
-        AbstractFormComponent,
-        ButtonComponent,
-        CheckboxComponent,
-        DateComponent,
-        DynamicFieldDirective,
-        DynamicFormComponent,
-        InputComponent,
-        RadiobuttonComponent,
-        SelectComponent,
-        LoadingWrapperComponent,
-        SectionTextComponent,
-        SpinnerComponent,
-        TitleTextComponent,
-        DataTableComponent,
-        FontAwesomeModule,
-        DisableControlDirective,
-        TextAreaComponent,
-        FaIconCircleComponent,
-        ParentFieldComponent,
-        ContentCardComponent,
-        SectionHeaderComponent,
-        DottedVerticalSeparatorComponent,
-        BackButtonComponent,
-        DatepickerComponent,
-        TimepickerComponent,
-        OnOffLightComponent
-    ],
-    entryComponents: [
-        AbstractFormComponent,
-        DynamicFormComponent,
-        InputComponent,
-        ButtonComponent,
-        SelectComponent,
-        DateComponent,
-        RadiobuttonComponent,
-        CheckboxComponent,
-        TextAreaComponent,
-        ParentFieldComponent
-    ]
+  declarations: [
+    PanelCardComponent,
+    AbstractFormComponent,
+    ButtonComponent,
+    CheckboxComponent,
+    DateComponent,
+    DynamicFieldDirective,
+    DynamicFormComponent,
+    InputComponent,
+    RadiobuttonComponent,
+    SelectComponent,
+    LoadingWrapperComponent,
+    SectionTextComponent,
+    SpinnerComponent,
+    TitleTextComponent,
+    DataTableComponent,
+    DisableControlDirective,
+    TextAreaComponent,
+    FaIconCircleComponent,
+    ParentFieldComponent,
+    ContentCardComponent,
+    SectionHeaderComponent,
+    DottedVerticalSeparatorComponent,
+    BackButtonComponent,
+    DatepickerComponent,
+    TimepickerComponent,
+    OnOffLightComponent,
+    ActionButtonContainerComponent
+  ],
+  imports: [
+    CommonModule,
+    FlexLayoutModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    LayoutModule,
+    RouterModule,
+  ],
+  exports: [
+    FlexLayoutModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    PanelCardComponent,
+    AbstractFormComponent,
+    ButtonComponent,
+    CheckboxComponent,
+    DateComponent,
+    DynamicFieldDirective,
+    DynamicFormComponent,
+    InputComponent,
+    RadiobuttonComponent,
+    SelectComponent,
+    LoadingWrapperComponent,
+    SectionTextComponent,
+    SpinnerComponent,
+    TitleTextComponent,
+    DataTableComponent,
+    FontAwesomeModule,
+    DisableControlDirective,
+    TextAreaComponent,
+    FaIconCircleComponent,
+    ParentFieldComponent,
+    ContentCardComponent,
+    SectionHeaderComponent,
+    DottedVerticalSeparatorComponent,
+    BackButtonComponent,
+    DatepickerComponent,
+    TimepickerComponent,
+    OnOffLightComponent,
+    ActionButtonContainerComponent
+  ],
+  entryComponents: [
+    AbstractFormComponent,
+    DynamicFormComponent,
+    InputComponent,
+    ButtonComponent,
+    SelectComponent,
+    DateComponent,
+    RadiobuttonComponent,
+    CheckboxComponent,
+    TextAreaComponent,
+    ParentFieldComponent
+  ]
 })
 export class UiElementsModule {
 }

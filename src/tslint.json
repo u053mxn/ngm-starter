@@ -11,11 +11,13 @@
       true,
       "element",
       "app",
-      "kebab-case"
+      "kebab-case",
+      "ui"
     ],
     "no-string-literal": false,
     "one-variable-per-declaration": false,
     "no-unused-expression": false,
-    "no-bitwise": false
+    "no-bitwise": false,
+    "no-namespace": false
   }
 }

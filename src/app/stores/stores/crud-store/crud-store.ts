@@ -2,8 +2,8 @@ import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
 import {EntityStore} from '../entity-store/entity-store';
 import {ILoadingStore} from '../loading-store/loading-store.model';
 import {StoreModel} from './crud-store.model';
-import {StoreMessage} from '../../../shared/models/messages/store-message.model';
 import {map} from 'rxjs/operators';
+import {StoreMessage} from '../../../models/messages/store-message.model';
 
 export class CRUDStore<T> extends EntityStore<T> implements ILoadingStore {
     private readonly loadingSubject: BehaviorSubject<boolean>;

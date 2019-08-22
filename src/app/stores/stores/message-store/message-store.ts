@@ -1,11 +1,10 @@
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import * as _ from 'lodash';
-import {AppMessage} from '../../../shared/models/messages/app-message.model';
-import {StoreMessage} from '../../../shared/models/messages/store-message.model';
-import {E2MessageType} from '../../../shared/models/messages/e2-message-type.enum';
-import {E2Page} from '../../../shared/models/messages/e2-page.enum';
-import {E2Log} from '../../logging/e2-log.service';
 import {IMessageStore} from './message-store.model';
+import {StoreMessage} from '../../../models/messages/store-message.model';
+import {AppMessage} from '../../../models/messages/app-message.model';
+import {E2MessageType} from '../../../models/messages/e2-message-type.enum';
+import {E2Page} from '../../../models/messages/e2-page.enum';
 
 export class MessageStore implements IMessageStore<StoreMessage, AppMessage> {
     protected readonly messageSubject: BehaviorSubject<StoreMessage[]>;
@@ -23,10 +22,10 @@ export class MessageStore implements IMessageStore<StoreMessage, AppMessage> {
     }
 
     addMessage(appMessage: AppMessage): Observable<StoreMessage> {
-        E2Log.info(`Adding message ${appMessage.message}`);
+        console.log(`Adding message ${appMessage.message}`);
         if (!appMessage.type) {
-            E2Log.info('Message not given type. Setting to info message as default');
-            appMessage.type = E2MessageType.INFO;
+          console.log('Message not given type. Setting to info message as default');
+          appMessage.type = E2MessageType.INFO;
         }
         const date = new Date();
         const time = date.toLocaleString();
@@ -106,8 +105,8 @@ export class MessageStore implements IMessageStore<StoreMessage, AppMessage> {
         return h.toString(10);
     }
 
-    private insertString(string: string, stringToInsert = '', pos = 0): string {
-        return string.slice(0, pos) + stringToInsert + string.slice(pos);
+    private insertString(s: string, stringToInsert = '', pos = 0): string {
+        return s.slice(0, pos) + stringToInsert + s.slice(pos);
     }
 
     private randomString(): string {

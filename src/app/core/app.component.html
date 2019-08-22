@@ -3,7 +3,7 @@
     <section class="flex-center-around flex-vert">
       <h1 class="animated slideInLeft" style="padding-top: 5em">This is the app component!</h1>
 
-      <app-action-button-container>
+      <ui-action-button-container>
         <button mat-raised-button color="primary" (click)="message('Info Message', SnackbarMessageType.INFO)">Display
           Info
         </button>
@@ -16,12 +16,12 @@
         <button mat-raised-button color="warn" (click)="message('Error Message', SnackbarMessageType.ERROR)">Display
           Error
         </button>
-      </app-action-button-container>
+      </ui-action-button-container>
 
-      <app-action-button-container>
+      <ui-action-button-container>
         <button mat-raised-button color="primary" (click)="changeTheme(AppTheme.DARK)">Dark Theme</button>
         <button mat-raised-button color="accent" (click)="changeTheme(AppTheme.LIGHT)">Light Theme</button>
-      </app-action-button-container>
+      </ui-action-button-container>
 
       <app-example-form></app-example-form>
 

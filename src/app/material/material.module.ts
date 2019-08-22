@@ -2,10 +2,10 @@ import {
   MatButtonModule, MatCardModule,
   MatCheckboxModule, MatDatepickerModule, MatExpansionModule,
   MatFormFieldModule, MatGridListModule, MatIconModule,
-  MatInputModule, MatNativeDateModule,
-  MatOptionModule, MatPaginatorModule, MatProgressSpinnerModule, MatRadioModule,
+  MatInputModule, MatMenuModule, MatNativeDateModule,
+  MatOptionModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule,
   MatSelectModule, MatSidenavModule,
-  MatSnackBarModule, MatSortModule, MatTableModule
+  MatSnackBarModule, MatSortModule, MatTableModule, MatTooltipModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 import {SnackbarModule} from './snackbar';
@@ -54,7 +54,10 @@ import {ThemingService} from './theming/theming.service';
     MatNativeDateModule,
     MatRadioModule,
     MatSidenavModule,
-    SnackbarModule
+    SnackbarModule,
+    MatTooltipModule,
+    MatMenuModule,
+    MatProgressBarModule
   ],
   providers: [ThemingService]
 })

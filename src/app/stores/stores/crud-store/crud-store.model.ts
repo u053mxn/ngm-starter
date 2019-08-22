@@ -1,9 +1,9 @@
 import {Observable} from 'rxjs';
-import {AppMessage} from '../../../shared/models/messages/app-message.model';
-import {StoreMessage} from '../../../shared/models/messages/store-message.model';
 import {IEntityStore} from '../entity-store/entity-store.model';
 import {IMessageStore} from '../message-store/message-store.model';
 import {ILoadingStore} from '../loading-store/loading-store.model';
+import {StoreMessage} from '../../../models/messages/store-message.model';
+import {AppMessage} from '../../../models/messages/app-message.model';
 
 
 export interface StoreModel<T, E> {

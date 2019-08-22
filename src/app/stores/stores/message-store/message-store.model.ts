@@ -1,9 +1,8 @@
 import {Observable} from 'rxjs';
-import {StoreMessage} from '../../../shared/models/messages/store-message.model';
-import {AppMessage} from '../../../shared/models/messages/app-message.model';
-import {E2MessageType} from '../../../shared/models/messages/e2-message-type.enum';
-import {E2Page} from '../../../shared/models/messages/e2-page.enum';
-
+import {StoreMessage} from '../../../models/messages/store-message.model';
+import {AppMessage} from '../../../models/messages/app-message.model';
+import {E2MessageType} from '../../../models/messages/e2-message-type.enum';
+import {E2Page} from '../../../models/messages/e2-page.enum';
 
 export interface IMessageStore<E extends StoreMessage, A extends AppMessage> {
     messages: Observable<E[]>;

@@ -3,7 +3,6 @@ import * as _ from 'lodash';
 import {LoadingStore} from '../loading-store/loading-store';
 import {IUiStore} from './ui-store.model';
 import {map} from 'rxjs/operators';
-import {AppState} from '../../../app.store';
 
 export type Partial<T> = { [P in keyof T]?: T[P]; };
 
@@ -55,8 +54,8 @@ export class UiStore<T> extends LoadingStore implements IUiStore<T> {
         return h.toString(10);
     }
 
-    protected insertString(string: string, stringToInsert = '', pos = 0): string {
-        return string.slice(0, pos) + stringToInsert + string.slice(pos);
+    protected insertString(s: string, stringToInsert = '', pos = 0): string {
+        return s.slice(0, pos) + stringToInsert + s.slice(pos);
     }
 
     protected randomString(): string {
