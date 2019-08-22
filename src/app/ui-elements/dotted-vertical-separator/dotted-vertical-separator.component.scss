@@ -1,0 +1,20 @@
+:host {
+  height: 100%;
+}
+
+.separator-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  div:not(.dashed-line) {
+    margin: 4px 0;
+  }
+
+  .dashed-line {
+    border-left: 1px dotted grey;
+    height: 100%;
+    min-height: 8px;
+  }
+}

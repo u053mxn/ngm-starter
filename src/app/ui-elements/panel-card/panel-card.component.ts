@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-panel-card',
+  selector: 'ui-panel-card',
   templateUrl: './panel-card.component.html',
   styleUrls: ['./panel-card.component.scss']
 })

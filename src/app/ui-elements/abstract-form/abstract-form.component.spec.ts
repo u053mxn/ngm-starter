@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AbstractFormComponent } from './abstract-form.component';
+import {AbstractFormComponent} from './abstract-form.component';
+import {UiElementsModule} from '../ui-elements.module';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('AbstractFormComponent', () => {
   let component: AbstractFormComponent;
@@ -8,9 +10,11 @@ describe('AbstractFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AbstractFormComponent ]
-    })
-    .compileComponents();
+      imports: [
+        UiElementsModule,
+        HttpClientTestingModule,
+      ]
+    });
   }));
 
   beforeEach(() => {

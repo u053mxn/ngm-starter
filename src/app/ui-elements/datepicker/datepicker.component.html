@@ -1,0 +1,25 @@
+<div class="datepicker-container" [ngClass]="{'date-chosen': !!date}" (click)="picker.open()">
+    <div class="header-row flex-center-between" [ngClass]="{'date-chosen': !!date}">
+        <span class="date">{{!!date ? 'Date' : 'Choose Date'}}</span>
+        <fa-icon class="calendar-icon" [icon]="calendarIcon" fixedWidth="true"
+                 [ngClass]="{'date-chosen': !!date}"></fa-icon>
+    </div>
+    <div class="date-row">
+        <div class="day-of-week">
+            {{dayOfWeek}}
+        </div>
+        <div class="day">
+            {{day}}
+        </div>
+    </div>
+    <div class="year-row flex-center flex-row-rev">
+        {{year}}
+    </div>
+    <mat-form-field class="form-field">
+        <input matInput [formControl]="formControl" required
+               (dateChange)="onDateChange($event.value)" [matDatepicker]="picker"
+               [style.visibility]="'hidden'" [min]="minDate">
+        <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+</div>
+

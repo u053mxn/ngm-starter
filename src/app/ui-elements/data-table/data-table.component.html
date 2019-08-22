@@ -1,77 +1,139 @@
-<div class="animated fadeIn animate-fast">
+<div #tableContainer class="data-table-container" [style.maxWidth]="maxWidth" [style.borderRadius]="borderRadius">
 
-  <h4 *ngIf="tableName" class="table-title" [ngClass]="{'table-title-light': titleLightTheme}">{{tableName}}</h4>
+    <ui-section-text *ngIf="tableName && !showNoMatchFound()"
+                     [tooltipMessage]="helpText">{{tableName}}</ui-section-text>
 
-  <mat-form-field [ngClass]="{'light-theme': filterLightTheme}">
-    <input matInput (keyup)="applyFilter($event.target['value'])" placeholder="Filter">
-  </mat-form-field>
+    <mat-form-field *ngIf="includeFilter && !showNoMatchFound()" class="results-filter">
+        <input matInput (keyup)="applyFilter($event.target['value'])">
+        <mat-label>{{filterLabel}}</mat-label>
+    </mat-form-field>
 
-  <div class="table-with-paginator" [ngClass]="{'light-theme': tableLightTheme}">
-    <div class="loading-shade" *ngIf="isLoadingResults">
-      <mat-spinner *ngIf="true"></mat-spinner>
+    <div class="table-with-paginator">
+        <div class="loading-shade" *ngIf="isLoadingResults">
+            <ui-spinner></ui-spinner>
+        </div>
+        <div class="mat-elevation-z8 table-container" [ngClass]="{'table-border': !showNoMatchFound()}">
+            <table mat-table [ngClass]="{'hide': !dataSource}" [dataSource]="dataSource" matSort
+                   [matSortDisableClear]="disableClear" multiTemplateDataRows>
+                <!-- Checkbox/Radio Column -->
+                <ng-template [ngIf]="checkboxColumn" [ngIfElse]="radioColumn">
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef class="entity-cell select-cell">
+                            <mat-checkbox (change)="$event ? masterToggle() : null"
+                                          [checked]="selection.hasValue() && isAllSelected()"
+                                          [indeterminate]="selection.hasValue() && !isAllSelected()">
+                            </mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row" class="entity-cell select-cell">
+                            <mat-checkbox (click)="$event.stopPropagation()"
+                                          (change)="$event ? selection.toggle(row) : null"
+                                          [checked]="selection.isSelected(row)">
+                            </mat-checkbox>
+                        </td>
+                    </ng-container>
+                </ng-template>
+
+                <ng-template #radioColumn>
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef class="entity-cell select-cell"></th>
+                        <td mat-cell *matCellDef="let row" class="entity-cell select-cell">
+                            <mat-radio-button (click)="$event.stopPropagation()"
+                                              (change)="$event ? toggleRadio(row) : null"
+                                              [checked]="selection.isSelected(row)">
+                            </mat-radio-button>
+                        </td>
+                    </ng-container>
+                </ng-template>
+
+
+                <ng-template ngFor let-column let-i="index" [ngForOf]="displayedColumns">
+                    <ng-template [ngIf]="column !=='select'">
+
+                        <!-- Other Columns -->
+                        <ng-container matColumnDef="{{column}}">
+                            <ng-template [ngIf]="!isColumnSortDisabled(column)" [ngIfElse]="noSort">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header class="entity-cell"
+                                    [style.width]="columnWidthMap[column] || 'auto'">
+                                    {{displayColumnTitle(column)}}
+                                </th>
+                            </ng-template>
+                            <ng-template #noSort>
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disabled class="entity-cell"
+                                    [ngClass]="{'actions-header': column === 'actions'}"
+                                    [style.width]="columnWidthMap[column] || 'auto'">
+                                    {{displayColumnTitle(column)}}
+                                </th>
+                            </ng-template>
+                            <td mat-cell *matCellDef="let entity" class="entity-cell"
+                                [ngClass]="{'currency': currencyColumns.includes(column), 'actions': column === 'actions'}"
+                                [style.padding]="columnPaddingMap[column] || '0 0 0 0'">
+                                <ng-template ngFor let-fieldType [ngForOf]="[tableFieldMapper(entity, column)]">
+                                            <!--Checked checkbox-->
+                                            <mat-checkbox *ngIf="fieldType === TableFieldDataType.CHECKED_CHECKBOX"
+                                                          class="yes-no" [checked]="true" [disabled]="true"
+                                                          (click)="$event.stopPropagation()"></mat-checkbox>
+                                            <!--Unchecked checkbox-->
+                                            <mat-checkbox *ngIf="fieldType === TableFieldDataType.UNCHECKED_CHECKBOX"
+                                                          class="yes-no" [checked]="false" [disabled]="true"
+                                                          (click)="$event.stopPropagation()"></mat-checkbox>
+                                            <!--Currency-->
+                                            <ng-template
+                                                    [ngIf]="fieldType === TableFieldDataType.CURRENCY">{{entity[column] | currency:'USD':''}}</ng-template>
+                                            <!--Actual Value-->
+                                            <ng-template
+                                                    [ngIf]="fieldType === TableFieldDataType.RAW_VALUE">{{entity[column]}}</ng-template>
+                                            <!--Null-->
+                                            <ng-template [ngIf]="fieldType === TableFieldDataType.NULL">null</ng-template>
+                                            <!--Action Option-->
+                                            <ng-template [ngIf]="fieldType === TableFieldDataType.ACTION_OPTIONS">
+                                                <button mat-icon-button class="list-edit-icon" [matMenuTriggerFor]="menu">
+                                                    <fa-icon title="Options" [icon]="['fas', 'ellipsis-v']"></fa-icon>
+                                                </button>
+                                                <mat-menu #menu="matMenu">
+                                            <button mat-menu-item *ngFor="let menuItem of entity[column]"
+                                                    (click)="menuItem['clickAction'](entity)">
+                                                <fa-icon [icon]="menuItem['icon']"></fa-icon>
+                                                <span>{{menuItem['label']}}</span>
+                                            </button>
+                                        </mat-menu>
+                                    </ng-template>
+                                </ng-template>
+                            </td>
+                        </ng-container>
+                    </ng-template>
+                </ng-template>
+
+                <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+                <!--<ng-container matColumnDef="expandedDetail">-->
+                <!--<td mat-cell *matCellDef="let entity" [attr.colspan]="displayedColumns.length">-->
+                <!--<div class="entity-detail"-->
+                <!--[@detailExpand]="entity == expandedEntity ? 'expanded' : 'collapsed'"-->
+                <!--*ngIf="includeExpandedDropdownContent">-->
+                <!--<ng-content></ng-content>-->
+                <!--</div>-->
+                <!--</td>-->
+                <!--</ng-container>-->
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="dark-theme table-header">
+                </tr>
+                <tr mat-row *matRowDef="let entity; columns: displayedColumns;" class="entity-row"
+                    (click)="expandedEntity = expandedEntity === entity ? null : entity">
+                </tr>
+                <!--<tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>-->
+            </table>
+
+            <ng-template [ngIf]="showNoMatchFound()">
+                <div class="table-title no-results-message">
+                    <ng-template [ngIf]="!isLoadingResults">
+                        <fa-icon [icon]="['fas', 'info']" [style.margin-right]="'0.5em'"></fa-icon>
+                        <p>No match found.</p>
+                    </ng-template>
+                </div>
+                <!--<ui-title-text>No Data to Display</ui-title-text>-->
+            </ng-template>
+
+        </div>
+        <mat-paginator [ngClass]="{'hide': (!dataSource)}" [pageSizeOptions]="sizes"
+                       [length]="resultsLength"></mat-paginator>
     </div>
-    <div class="mat-elevation-z8 table-container">
-      <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
-        <!-- Checkbox Column -->
-        <ng-container matColumnDef="select">
-          <th mat-header-cell *matHeaderCellDef class="entity-cell select-cell">
-            <mat-checkbox (change)="$event ? masterToggle() : null"
-                          [checked]="selection.hasValue() && isAllSelected()"
-                          [indeterminate]="selection.hasValue() && !isAllSelected()">
-            </mat-checkbox>
-          </th>
-          <td mat-cell *matCellDef="let row" class="entity-cell select-cell">
-            <mat-checkbox (click)="$event.stopPropagation()"
-                          (change)="$event ? selection.toggle(row) : null"
-                          [checked]="selection.isSelected(row)">
-            </mat-checkbox>
-          </td>
-        </ng-container>
-
-        <ng-template ngFor let-column let-i="index" [ngForOf]="displayedColumns">
-          <ng-template [ngIf]="column !=='select'">
-
-            <!-- Other Columns -->
-            <ng-container matColumnDef="{{column}}">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header
-                  class="entity-cell">{{displayColumnTitle(column)}}</th>
-              <td mat-cell *matCellDef="let entity" class="entity-cell">
-                <mat-checkbox *ngIf="isString(entity[column]) && entity[column].toUpperCase() === 'Y'" class="yes-no"
-                              [checked]="true" [disabled]="true" (click)="$event.stopPropagation()"></mat-checkbox>
-                <mat-checkbox *ngIf="isString(entity[column]) && entity[column].toUpperCase() === 'N'" class="yes-no"
-                              [checked]="false" [disabled]="true" (click)="$event.stopPropagation()"></mat-checkbox>
-                <ng-template
-                  [ngIf]="(entity[column] && entity[column].toString().toUpperCase() !== 'N' && entity[column].toString().toUpperCase() !== 'Y')">{{entity[column]}}</ng-template>
-                <ng-template [ngIf]="!entity[column] && entity[column] !== 0">null</ng-template>
-                <ng-template [ngIf]="entity[column] === 0">{{entity[column]}}</ng-template>
-              </td>
-            </ng-container>
-          </ng-template>
-        </ng-template>
-
-        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-        <ng-container matColumnDef="expandedDetail">
-          <td mat-cell *matCellDef="let entity" [attr.colspan]="displayedColumns.length">
-            <div class="entity-detail"
-                 [@detailExpand]="entity == expandedEntity ? 'expanded' : 'collapsed'">
-              <div>
-                Test
-              </div>
-            </div>
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="dark-theme table-header"></tr>
-        <tr mat-row *matRowDef="let entity; columns: displayedColumns;"
-            class="entity-row"
-            [class.colored-row]="entity['_id']%2 !== 0"
-            [class.expanded-row]="expandedEntity === entity"
-            (click)="expandedEntity = expandedEntity === entity ? null : entity">
-        </tr>
-        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
-
-      </table>
-    </div>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="resultsLength"></mat-paginator>
-  </div>
 </div>

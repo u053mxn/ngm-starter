@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PanelCardComponent } from './panel-card.component';
+import {PanelCardComponent} from './panel-card.component';
+import {UiElementsModule} from '../ui-elements.module';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('PanelCardComponent', () => {
   let component: PanelCardComponent;
@@ -8,9 +10,11 @@ describe('PanelCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PanelCardComponent ]
-    })
-    .compileComponents();
+      imports: [
+        UiElementsModule,
+        HttpClientTestingModule,
+      ]
+    });
   }));
 
   beforeEach(() => {

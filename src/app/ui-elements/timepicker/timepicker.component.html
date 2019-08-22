@@ -1,0 +1,18 @@
+<div class="timepicker-container flex-center-center" [ngClass]="{'time-chosen': !!time}">
+    <div class="time">
+        <p>
+            <span #hh id="hideHour" class="hide"></span>
+            <input #th id="txtHour" class="hour" maxlength="2" type="text" [value]="'--'" (input)="inputChange(th, hh)"
+                   (focus)="onFocus(th)" (blur)="onBlur(th)" [ngClass]="{'error': hourError}"
+                   [formControl]="hourFormControl" required/>
+            :
+            <span #hm id="hideMinute" class="hide"></span>
+            <input #tm id="txtMinute" class="minute" maxlength="2" type="text" [value]="'--'"
+                   (input)="inputChange(tm, hm)"
+                   (focus)="onFocus(tm)" (blur)="onBlur(tm)" [ngClass]="{'error': minuteError}"
+                   [formControl]="minuteFormControl" required/>
+        </p>
+    </div>
+    <button class="meriden flex-center-center" [ngClass]="{'pm': meriden === 'PM'}" (click)="toggleMeriden()"><span
+            class="mt flex-center-center">{{meriden}}</span></button>
+</div>

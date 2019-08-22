@@ -1,0 +1,9 @@
+<div class="led-box">
+  <div class="on" [ngClass]="{
+  'off': off,
+  'red-on': color === onOffColor.RED && !off,
+  'red-off': color === onOffColor.RED && off,
+  'green-on': color === onOffColor.GREEN && !off,
+  'green-off': color === onOffColor.GREEN && off
+  }"></div>
+</div>

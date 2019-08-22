@@ -1,0 +1,9 @@
+<div fxLayout fxLayoutAlign="start center" fxLayoutGap="12px" class="profile-title">
+    <ui-section-text [tooltipMessage]="helpMessage">
+        <ng-content></ng-content>
+        <a *ngIf="editIconRouterLink" id="overview-info-edit-link" class="edit-icon" [matTooltip]="editIconTooltip"
+           [routerLink]="editIconRouterLink">
+            <fa-icon [icon]="['fas', 'pen']"></fa-icon>
+        </a>
+    </ui-section-text>
+</div>

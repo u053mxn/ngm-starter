@@ -1,0 +1,13 @@
+<ng-template #spinner>
+    <ui-spinner [size]="3"></ui-spinner>
+</ng-template>
+<mat-card class="max-w1200 mat-elevation-z8">
+    <mat-progress-bar [ngClass]="{'hide': !httpLoading}" [mode]="'indeterminate'" color="accent"></mat-progress-bar>
+    <section class="card-content">
+        <ui-section-header [helpMessage]="helpMessage" [editIconRouterLink]="editIconRouterLink"
+                           [editIconTooltip]="editIconTooltip">{{sectionTitle}}</ui-section-header>
+        <ng-container *ngIf="!cardLoading; else spinner">
+            <ng-content></ng-content>
+        </ng-container>
+    </section>
+</mat-card>

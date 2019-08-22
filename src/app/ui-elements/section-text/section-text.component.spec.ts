@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SectionTextComponent } from './section-text.component';
+import {SectionTextComponent} from './section-text.component';
+import {UiElementsModule} from '../ui-elements.module';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('SectionTextComponent', () => {
   let component: SectionTextComponent;
@@ -8,9 +10,11 @@ describe('SectionTextComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SectionTextComponent ]
-    })
-    .compileComponents();
+      imports: [
+        UiElementsModule,
+        HttpClientTestingModule,
+      ]
+    });
   }));
 
   beforeEach(() => {

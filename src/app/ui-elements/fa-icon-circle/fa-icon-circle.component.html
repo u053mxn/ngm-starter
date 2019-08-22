@@ -1,0 +1,18 @@
+<div [matTooltip]="tooltipMessage"
+     [matTooltipShowDelay]="100"
+     [matTooltipHideDelay]="100"
+     [matTooltipClass]="{'tooltip-info': true}"
+     class="icon-circle primary-bg--lighter flex-center-center">
+    <ng-template [ngIf]="!!href" [ngIfElse]="noLink">
+        <a [id]="linkId" [href]="href" target="_new" rel="noopener">
+            <fa-icon [icon]="faIconArray" class="icon"></fa-icon>
+        </a>
+    </ng-template>
+
+    <ng-template #noLink>
+        <span>
+              <fa-icon [icon]="faIconArray" class="icon"></fa-icon>
+        </span>
+    </ng-template>
+
+</div>

@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LoadingWrapperComponent } from './loading-wrapper.component';
+import {LoadingWrapperComponent} from './loading-wrapper.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {UiElementsModule} from '../ui-elements.module';
 
 describe('LoadingWrapperComponent', () => {
   let component: LoadingWrapperComponent;
@@ -8,9 +10,11 @@ describe('LoadingWrapperComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoadingWrapperComponent ]
-    })
-    .compileComponents();
+      imports: [
+        UiElementsModule,
+        HttpClientTestingModule,
+      ]
+    });
   }));
 
   beforeEach(() => {

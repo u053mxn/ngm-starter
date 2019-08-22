@@ -1,0 +1,24 @@
+$size: 0.95em;
+
+.icon-circle {
+  border-radius: 100%;
+  width: $size;
+  height: $size;
+  box-shadow: 0 1px 1px 1px rgba(119, 119, 119, 0.15);
+}
+
+.icon-circle .icon {
+  font-size: 0.7em;
+  color: whitesmoke !important;
+}
+
+.icon-circle:hover {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+}

@@ -8,7 +8,7 @@ import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/c
 export class SpinnerComponent implements AfterViewInit {
   @ViewChild('spinner') spinner: ElementRef;
   @Input() size: number;
-
+  @Input() color: 'primary' | 'accent' | 'warn' = 'primary';
   constructor() {
     this.size = 5;
   }

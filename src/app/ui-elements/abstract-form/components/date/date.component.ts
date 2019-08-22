@@ -6,7 +6,7 @@ import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
   selector: 'ui-date',
   template: `
     <mat-form-field class="dynamic-form-field" [formGroup]="group" [ngStyle]="{'width': field.width}">
-      <input matInput [matDatepicker]="picker" [formControlName]="field.name" [placeholder]="field.label">
+      <input matInput [matDatepicker]="picker" [formControlName]="field.name" [placeholder]="field.label" [name]="field.name">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
       <mat-hint></mat-hint>
@@ -23,8 +23,6 @@ import {FormattedFieldConfig} from '../dynamic-form/dynamic-form.component';
   `]
 })
 export class DateComponent implements OnInit {
-  @HostBinding('style.width') hostWidth: string;
-  @HostBinding('style.grid-column-end') hostSpan: string;
   field: FormattedFieldConfig;
   group: FormGroup;
 
@@ -33,8 +31,5 @@ export class DateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.field.width = this.field.width || '100%';
-    this.hostWidth = this.field.rowWidth || '100%';
-    this.hostSpan = `span ${this.field.columnSpan || 1}`;
   }
 }
